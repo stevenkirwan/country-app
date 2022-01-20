@@ -2,7 +2,7 @@ import Head from "next/head";
 import Cards from "../components/cards/Cards";
 
 // filter API to only return fields needed
-const defaultEndpoint = `https://restcountries.com/v3.1/all?fields=name,flags,population,capital,cca2`;
+const defaultEndpoint = `${process.env.ENDPOINT}all?fields=name,flags,population,capital,cca2`;
 
 export async function getServerSideProps() {
   const res = await fetch(defaultEndpoint);

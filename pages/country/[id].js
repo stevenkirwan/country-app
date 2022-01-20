@@ -1,7 +1,7 @@
 import CountryDetail from "../../components/countryDetail/CountryDetail";
 
 // filter API to only return fields needed
-const defaultEndpoint = `https://restcountries.com/v3.1/alpha/`;
+const defaultEndpoint = `${process.env.ENDPOINT}alpha/`;
 
 async function getCountryDetails(query) {
   const res = await fetch(`${defaultEndpoint}${query}`);
