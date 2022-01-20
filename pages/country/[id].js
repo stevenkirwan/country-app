@@ -1,4 +1,3 @@
-import Link from "next/link";
 import CountryDetail from "../../components/countryDetail/CountryDetail";
 
 // filter API to only return fields needed
