@@ -1,12 +1,9 @@
 import Head from "next/head";
 import Cards from "../components/cards/Cards";
-
-// filter API to only return fields needed
-const defaultEndpoint = `${process.env.ENDPOINT}all?fields=name,flags,population,capital,cca2`;
+import { getData } from "../utils/getData";
 
 export async function getServerSideProps() {
-  const res = await fetch(defaultEndpoint);
-  const data = await res.json();
+  const data = await getData("all?fields=name,flags,population,capital,cca2");
   return {
     props: {
       data,
@@ -15,14 +12,16 @@ export async function getServerSideProps() {
 }
 
 // A list of countries that should show at a minimum, name, flag and population
-export default function Home({ data }) {
+const Home = ({ data }) => {
   return (
     <div>
       <Head>
         <title>Country App</title>
       </Head>
 
-     <Cards data={data}/>
+      <Cards data={data} />
     </div>
   );
-}
+};
+
+export default Home;
