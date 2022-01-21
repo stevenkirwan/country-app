@@ -2,16 +2,6 @@ import { render, screen } from "@testing-library/react";
 import "@testing-library/jest-dom";
 import Cards from "./Cards";
 
-test("Should render error message as no data is being passed", () => {
-  render(<Cards />);
-  // get the error message
-  const error = screen.getByRole("heading", { level: 3 });
-  // expect the error message to be rendered
-  expect(error).toHaveTextContent(
-    "Sorry, something went wrong please try again"
-  );
-});
-
 test("Should render a list of countries", () => {
   const data = [
     {

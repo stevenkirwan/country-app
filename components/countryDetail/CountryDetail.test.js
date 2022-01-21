@@ -3,8 +3,7 @@ import "@testing-library/jest-dom";
 import CountryDetail from "./CountryDetail";
 
 test("Should render details of country", () => {
-  const data = [
-    {
+  const data = {
       name: {
         common: "Haiti",
         official: "Republic of Haiti",
@@ -87,8 +86,7 @@ test("Should render details of country", () => {
       startOfWeek: "monday",
       capitalInfo: { latlng: [18.53, -72.33] },
       postalCode: { format: "HT####", regex: "^(?:HT)*(\\d{4})$" },
-    },
-  ];
+    };
 
   const borders = [
     {
@@ -223,8 +221,6 @@ test("Should render details of country", () => {
   ];
 
   render(<CountryDetail data={data} borders={borders} />);
-  // get the error message
   const countryDetail = screen.queryByTestId(/Country__Details/i);
-  // expect the error message to be rendered
   expect(countryDetail).toBeInTheDocument();
 });
