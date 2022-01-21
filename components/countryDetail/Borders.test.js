@@ -132,8 +132,6 @@ test("Should render a list of border countries", () => {
     },
   ];
   render(<Borders borders={data} />);
-  // get the error message
   const borders = screen.queryByTestId(/Borders/i);
-  // expect the error message to be rendered
   expect(borders).toBeInTheDocument();
 });
