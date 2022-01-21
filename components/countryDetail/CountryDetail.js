@@ -13,14 +13,16 @@ const CountryDetail = ({ data, borders }) => {
       </Styled.Button>
       {data && (
         <Styled.Content data-testid="Country__Details">
-          {data.flags && <Styled.ImgWrapper>
-            <Image
-              src={data.flags.svg ? data.flags.svg : data.flags.png}
-              alt={data.name.common}
-              width={300}
-              height={200}
-            />
-          </Styled.ImgWrapper>}
+          {data.flags && (
+            <Styled.ImgWrapper>
+              <Image
+                src={data.flags.svg ? data.flags.svg : data.flags.png}
+                alt={data.name.common}
+                width={300}
+                height={200}
+              />
+            </Styled.ImgWrapper>
+          )}
           <Styled.CountryDetail>
             {data?.name?.common && <h3>{data.name.common}</h3>}
             {data.capital && (
@@ -55,8 +57,22 @@ const CountryDetail = ({ data, borders }) => {
 };
 
 CountryDetail.propTypes = {
-  data: PropTypes.object,
-  borders: PropTypes.array,
+  data: PropTypes.shape({
+    flags: PropTypes.object,
+    name: PropTypes.object.isRequired,
+    capital: PropTypes.array,
+    population: PropTypes.number,
+    currencies: PropTypes.object,
+    languages: PropTypes.object,
+  }),
+  borders: PropTypes.arrayOf(
+    PropTypes.shape({
+      name: PropTypes.object.isRequired,
+      flags: PropTypes.object,
+      population: PropTypes.number,
+      cca2: PropTypes.string,
+    })
+  ).isRequired,
 };
 
 export default CountryDetail;

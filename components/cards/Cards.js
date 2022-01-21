@@ -42,7 +42,15 @@ const Cards = ({ data }) => {
 };
 
 Cards.propTypes = {
-	data: PropTypes.array,
+  data: PropTypes.arrayOf(
+    PropTypes.shape({
+      name: PropTypes.object.isRequired,
+      flags: PropTypes.object,
+      capital: PropTypes.array,
+      population: PropTypes.number,
+      cca2: PropTypes.string
+    })
+  ).isRequired,
 };
 
 export default Cards;

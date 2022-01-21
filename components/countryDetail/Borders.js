@@ -41,7 +41,14 @@ const Borders = ({ borders }) => {
 };
 
 Borders.propTypes = {
-  borders: PropTypes.array,
+   borders: PropTypes.arrayOf(
+    PropTypes.shape({
+      name: PropTypes.object.isRequired,
+      flags: PropTypes.object,
+      population: PropTypes.number,
+      cca2: PropTypes.string
+    })
+  ).isRequired,
 };
 
 export default Borders;
